@@ -15,6 +15,7 @@ __device__ void int2str(int value, char *buf, int size) {
 }
 
 // return str = "1       \n2       \nFizz    \n...\n\0"
+// for that n must be equal to size(str) - 1 and str[i] = '\0', for all i
 __global__ void kernel_fizzbuzz(char *str, int allign, int n) {
   int id = blockDim.x * blockIdx.x + threadIdx.x;
   int i = id + 1;
